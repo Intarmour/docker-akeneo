@@ -37,6 +37,7 @@ jobs:
 
 workflows:
 version: 3
+
     pull_request:
         jobs:
             - build
