@@ -1,3 +1,5 @@
+version: '3'
+
 jobs:
   build:
     machine:
@@ -34,6 +36,7 @@ jobs:
           command: curl -f http://localhost:8080/
 
 workflows:
+version: '3'
     pull_request:
         jobs:
             - build
