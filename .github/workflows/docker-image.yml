@@ -1,33 +1,20 @@
-name: build-akeneo-pim-php
+name: Docker Image CI
 
-on: workflow_dispatch
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
-  akeneo-pim-php:
+
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      -
-        name: Checkout
-        uses: actions/checkout@v4
-      -
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
-      -
-        name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
-      -
-        name: Login to DockerHub
-        uses: docker/login-action@v3
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
-      -
-        name: Build and push
-        id: docker_build
-        uses: docker/build-push-action@v5
-        with:
-          context: images/akeneo-pim-php
-          platforms: linux/amd64
-          push: true
-          tags: |
-            intarmour/akeneo-pim-php:8.1
+    - uses: actions/checkout@v3
+    - name: Build the Docker image for Akeneo PIM Node
+      run: docker build . --file path/to/Dockerfile-node --tag intarmour/akeneo-pim-node:$(date +%s)
+    - name: Build the Docker image for Akeneo PIM PHP
+      run: docker build . --file path/to/Dockerfile-php --tag intarmour/akeneo-pim-php:$(date +%s)
