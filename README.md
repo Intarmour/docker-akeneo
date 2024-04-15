@@ -8,8 +8,7 @@ This repository is used to create a new PIM project based on Akeneo PIM.
 If you want to contribute to the Akeneo PIM (and we will be pleased if you do!), you can fork the repository https://github.com/akeneo/pim-community-dev and submit a pull request.
 
 
-  <a href="https://hub.docker.com/r/intarmour/akeneo-pim-php/" target="_blank"><img src="https://img.shields.io/docker/pulls/intarmour/akeneo-pim-php.svg?label=Akeneo%20PHP%20docker%20pulls" alt="Docker Hub Pulls - Akeneo Pim PHP" /></a>
-  <a href="https://hub.docker.com/r/intarmour/intarmour/akeneo-pim-node" target="_blank"><img src="https://img.shields.io/docker/pulls/intarmour/akeneo-pim-node.svg?Akeneo%20NODE%20docker%20pulls" alt="Docker Hub Pulls - Nginx" /></a>
+[![CircleCI](https://dl.circleci.com/status-badge/img/circleci/AVKrqpBmkHH4ddomqgsp1c/P7uhDZshJFxAhkyQiEHBFf/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/AVKrqpBmkHH4ddomqgsp1c/P7uhDZshJFxAhkyQiEHBFf/tree/main)
   <a href="https://github.com/intarmour/docker-magento/graphs/commit-activity" target="_blank"><img src="https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg" alt="Maintained - Yes" /></a>
   <img src="https://img.shields.io/badge/apple%20silicon%20support-yes-brightgreen" alt="Apple Silicon Support" />
   <a href="https://opensource.org/licenses/MIT" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
