@@ -1,11 +1,7 @@
 Intarmour Docker Akeneo PIM Community Standard Edition
 =====================================
 
-Welcome to Akeneo PIM.
-
-This repository is used to create a new PIM project based on Akeneo PIM.
-
-If you want to contribute to the Akeneo PIM (and we will be pleased if you do!), you can fork the repository https://github.com/akeneo/pim-community-dev and submit a pull request.
+This repository provides Docker configuration files and instructions for setting up Akeneo, a powerful Product Information Management (PIM) system, using Docker containers.
 
 
 [![CircleCI](https://dl.circleci.com/status-badge/img/circleci/AVKrqpBmkHH4ddomqgsp1c/P7uhDZshJFxAhkyQiEHBFf/tree/main.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/circleci/AVKrqpBmkHH4ddomqgsp1c/P7uhDZshJFxAhkyQiEHBFf/tree/main)
@@ -13,53 +9,89 @@ If you want to contribute to the Akeneo PIM (and we will be pleased if you do!),
   <img src="https://img.shields.io/badge/apple%20silicon%20support-yes-brightgreen" alt="Apple Silicon Support" />
   <a href="https://opensource.org/licenses/MIT" target="_blank"><img src="https://img.shields.io/badge/license-MIT-blue.svg" /></a>
 
-Installation instructions
--------------------------
-
-### Development Installation with Docker
-
-## Requirements
- - Docker 19+
- - docker-compose >= 1.24
- - make
-
-## Creating a project and starting the PIM
-The following steps will install Akeneo PIM in the current directory (must be empty) and launch it from there:
-
-```bash
-$ docker run -u www-data -v $(pwd):/srv/pim -w /srv/pim --rm akeneo/pim-php-dev:8.1 \
-    php /usr/local/bin/composer create-project --prefer-dist \
-    akeneo/pim-community-standard /srv/pim "dev-master@dev"
-```
-```
-$ make
-```
-
-The PIM will be available on http://localhost:8080/, with `admin/admin` as default credentials.
-
-To shutdown your PIM: `make down`
-
-### Installation without Docker
 
 
-```bash
-$ php /usr/local/bin/composer create-project --prefer-dist akeneo/pim-community-standard /srv/pim "dev-master@dev"
-```
+## Features
 
-You will need to change the `.env` file to configure the access to your MySQL and ES server.
+- Easy setup and deployment of Akeneo PIM using Docker and Docker Compose.
+- Customizable PHP and Apache configurations for fine-tuning performance and functionality.
+- MySQL database included with default configuration for seamless integration.
+- Access to Akeneo via web browser at `http://localhost:8080` after setup.
+- Convenient start and stop commands for managing Docker containers.
 
-Once done, you can run:
+## Getting Started
 
-```
-$ NO_DOCKER=true make
-```
+### Prerequisites
+
+- Docker (version >= 19.03.0)
+- Docker Compose (version >= 1.25.0)
+
+### Installation
+
+1. Clone this repository to your local machine:
+
+   ```bash
+   git clone https://github.com/Intarmour/docker-akeneo.git
+   ```
+
+2. Navigate to the cloned repository:
+
+   ```bash
+   cd docker-akeneo
+   ```
+
+3. Configure environment variables (if needed) in the `.env` file.
+
+4. Build and start the Docker containers:
+
+   ```bash
+   docker-compose up -d --build
+   ```
+
+   This command will initialize the Akeneo and MySQL containers defined in the `docker-compose.yml` file.
+
+5. Access Akeneo via your web browser at `http://localhost:8080`.
+
+### Configuration
+
+- MySQL Database Configuration:
+  - Host: `db`
+  - Port: `3306`
+  - Username: `root`
+  - Password: `root`
+  - Database Name: `akeneo_pim`
+
+### Usage
+
+- Start the containers:
+
+  ```bash
+  docker-compose up -d
+  ```
+
+- Stop the containers:
+
+  ```bash
+  docker-compose down
+  ```
+
+## Customization
+
+- Modify PHP and Apache configurations:
+  - PHP settings: `docker/php/php.ini`
+  - Apache virtual host: `docker/apache/vhost.conf`
+- Update `docker-compose.yml` for additional services or configurations.
+
+## Contributing
+
+Contributions are welcome! Please follow the guidelines outlined in [CONTRIBUTING.md](CONTRIBUTING.md) for submitting pull requests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Credits
 
 ### Intarmour
 
 <a href="mailto:simone@intarmour.com">💌 Contact me</a>
-
-## License
-
-[MIT](https://opensource.org/licenses/MIT)
