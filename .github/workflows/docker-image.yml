@@ -15,6 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image for Akeneo PIM Node
-      run: docker build . --file path/to/Dockerfile-node --tag intarmour/akeneo-pim-node:$(date +%s)
-    - name: Build the Docker image for Akeneo PIM PHP
-      run: docker build . --file path/to/Dockerfile-php --tag intarmour/akeneo-pim-php:$(date +%s)
+      run: docker build . --file images/php/Dockerfile --tag intarmour/akeneo-pim-php:$(date +%s)
